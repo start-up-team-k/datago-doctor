@@ -46,8 +46,8 @@ def render(d, status=None):
     lines = [head]
     if d.raw_msg:
         lines.append("  raw_msg: " + d.raw_msg)
-    if d.candidates and d.confidence == "candidate":
-        lines.append("  후보(candidates):")
+    if d.candidates:
+        lines.append("  가능한 원인(candidates):")
         lines += ["    - " + c for c in d.candidates]
     if d.fix:
         lines.append("  fix: " + d.fix)

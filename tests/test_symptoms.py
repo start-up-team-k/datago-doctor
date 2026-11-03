@@ -33,7 +33,7 @@ def test_e003_publicdatareader_66_service_key_not_registered():
     """https://github.com/WooilJeong/PublicDataReader/issues/66
     Title only: "SERVICE KEY IS NOT REGISTERED ERROR" (body reconstructed, synthetic)."""
     d = fx("synthetic_pdr66_99.xml")
-    assert "등록되지 않은 서비스키" in d.cause and d.confidence == "candidate"
+    assert "등록되지 않은 서비스키" in d.cause and d.confidence == "confirmed"
 
 
 def test_e004_publicdatareader_77_only_generic_failure_message_visible():
@@ -58,7 +58,7 @@ def test_e006_abroad_to_korea_18_all_apis_403_after_new_key():
     403 + returnReasonCode 30 on every API: sync delay after a new application and key reissue are candidates."""
     d = fx("kpubdata_gateway_key_not_registered.xml", 403)
     text = " ".join(d.candidates)
-    assert d.code == "30" and d.confidence == "candidate"
+    assert d.code == "30" and d.confidence == "confirmed"
     assert "동기화" in text and "재발급" in text
 
 
