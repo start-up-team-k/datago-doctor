@@ -1,0 +1,141 @@
+{
+ "issue_pdr2_99.xml": {
+  "note": "status not stated in the issue; 200 assumed",
+  "source": "issue",
+  "status": 200,
+  "url": "https://github.com/WooilJeong/PublicDataReader/issues/2"
+ },
+ "issue_pharmacy8_401_key_null.xml": {
+  "source": "issue",
+  "status": 401,
+  "url": "https://github.com/atomo-ai-dev/pharmacy-now/issues/8"
+ },
+ "issue_pharmacy8_403_not_registered.xml": {
+  "source": "issue",
+  "status": 403,
+  "url": "https://github.com/atomo-ai-dev/pharmacy-now/issues/8"
+ },
+ "kpubdata_gateway_key_not_registered.xml": {
+  "origin": "tests/fixtures/datago/error_gateway_key_not_registered.xml",
+  "source": "kpubdata",
+  "status": null
+ },
+ "kpubdata_gateway_quota_exceeded.xml": {
+  "origin": "tests/fixtures/datago/error_gateway_quota_exceeded.xml",
+  "source": "kpubdata",
+  "status": null
+ },
+ "kpubdata_gateway_unregistered_ip.xml": {
+  "origin": "tests/fixtures/datago/error_gateway_unregistered_ip.xml",
+  "source": "kpubdata",
+  "status": null
+ },
+ "kpubdata_invalid_request_10.json": {
+  "origin": "tests/fixtures/datago/error_invalid_request_10.json",
+  "source": "kpubdata",
+  "status": null
+ },
+ "kpubdata_rate_limit_22.json": {
+  "origin": "tests/fixtures/datago/error_rate_limit_22.json",
+  "source": "kpubdata",
+  "status": null
+ },
+ "kpubdata_service_unavailable_01.json": {
+  "origin": "tests/fixtures/datago/error_service_unavailable_01.json",
+  "source": "kpubdata",
+  "status": null
+ },
+ "kpubdata_xml_auth_30.xml": {
+  "origin": "tests/fixtures/datago/error_xml_auth_30.xml",
+  "source": "kpubdata",
+  "status": null
+ },
+ "live_badkey.xml": {
+  "content_type": "application/xml",
+  "source": "live",
+  "status": 403,
+  "time": "2026-11-03 17:15:46 KST",
+  "url": "getRTMSDataSvcAptTrade?LAWD_CD=11110&DEAL_YMD=202510&serviceKey=INVALID"
+ },
+ "live_badop.xml": {
+  "content_type": "application/xml",
+  "source": "live",
+  "status": 400,
+  "time": "2026-11-03 17:15:46 KST",
+  "url": "noSuchOperation?LAWD_CD=11110&DEAL_YMD=202510&serviceKey=INVALID"
+ },
+ "live_badsvc.xml": {
+  "content_type": "application/xml",
+  "source": "live",
+  "status": 400,
+  "time": "2026-11-03 17:15:47 KST",
+  "url": "../NoSuchService/getX?serviceKey=INVALID"
+ },
+ "live_encbad.xml": {
+  "content_type": "application/xml",
+  "source": "live",
+  "status": 403,
+  "time": "2026-11-03 17:15:47 KST",
+  "url": "getRTMSDataSvcAptTrade?LAWD_CD=11110&DEAL_YMD=202510&serviceKey=INVALID%253D%253D"
+ },
+ "live_http.xml": {
+  "content_type": "application/xml",
+  "source": "live",
+  "status": 403,
+  "time": "2026-11-03 17:15:47 KST",
+  "url": "(http://) getRTMSDataSvcAptTrade?LAWD_CD=11110&DEAL_YMD=202510&serviceKey=INVALID"
+ },
+ "live_json.json": {
+  "content_type": "application/json",
+  "source": "live",
+  "status": 403,
+  "time": "2026-11-03 17:15:47 KST",
+  "url": "getRTMSDataSvcAptTrade?LAWD_CD=11110&DEAL_YMD=202510&serviceKey=INVALID&_type=json"
+ },
+ "live_nokey.xml": {
+  "content_type": "application/xml",
+  "source": "live",
+  "status": 401,
+  "time": "2026-11-03 17:15:46 KST",
+  "url": "getRTMSDataSvcAptTrade?LAWD_CD=11110&DEAL_YMD=202510"
+ },
+ "live_noparams.xml": {
+  "content_type": "application/xml",
+  "source": "live",
+  "status": 403,
+  "time": "2026-11-03 17:15:47 KST",
+  "url": "getRTMSDataSvcAptTrade?serviceKey=INVALID"
+ },
+ "synthetic_garbage.txt": {
+  "source": "synthetic",
+  "status": 200
+ },
+ "synthetic_html_502.html": {
+  "source": "synthetic",
+  "status": 502
+ },
+ "synthetic_html_504.html": {
+  "source": "synthetic",
+  "status": 504
+ },
+ "synthetic_ok_json.json": {
+  "source": "synthetic",
+  "status": 200
+ },
+ "synthetic_ok_provider.xml": {
+  "source": "synthetic",
+  "status": 200
+ },
+ "synthetic_pdr66_99.xml": {
+  "source": "synthetic",
+  "status": 200
+ },
+ "synthetic_text_api_not_found.txt": {
+  "source": "synthetic",
+  "status": 404
+ },
+ "synthetic_text_unauthorized.txt": {
+  "source": "synthetic",
+  "status": 401
+ }
+}
