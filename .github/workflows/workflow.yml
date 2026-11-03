@@ -1,5 +1,6 @@
 # Manual only (workflow_dispatch). Not used until the GP approves PyPI publishing.
-# Requires PyPI "trusted publishing" configured for this repo; no token is stored.
+# PyPI trusted publisher is registered for this file name (workflow.yml); no token is stored.
+# The environment name below must match the PyPI publisher setting (being confirmed with the GP).
 name: Publish
 on: workflow_dispatch
 jobs:
