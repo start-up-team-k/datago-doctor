@@ -64,9 +64,9 @@ datago-doctor check "https://apis.data.go.kr/1613000/RTMSDataSvcAptTrade/getRTMS
 Example output:
 
 ```
-HTTP 403  [30] 등록되지 않은 서비스키 (layer=gateway, 후보)
+HTTP 403  [30] 등록되지 않은 서비스키 (layer=gateway, 확정)
   raw_msg: SERVICE_KEY_IS_NOT_REGISTERED_ERROR / 등록되지 않은 서비스키
-  후보(candidates):
+  가능한 원인(candidates):
     - 키 오타·공백·따옴표 혼입 또는 이중 인코딩(%25)
     - 인코딩 키/디코딩 키를 잘못 사용 (...)
     - 활용신청 직후 키 동기화 지연 (수 분~수 시간)
@@ -91,7 +91,7 @@ Tests use fixtures in `tests/fixtures/` (sources in `tests/fixtures/SOURCES.md`)
 
 ## Limitations
 
-- Result-code meanings in `datago_doctor/codes.py` are `candidate` unless marked `confirmed`. Code 12 is the only confirmed one; codes 20, 22, 30, 31, 32 and "401/403 when the application is missing" are listed with several candidate causes because sources disagree. When a code is a candidate, the output shows the "candidates" list instead of a single answer. Fixing a meaning means editing one table.
+- Result-code meanings in `datago_doctor/codes.py` are `candidate` unless marked `confirmed`. Confirmed means the meaning is in the portal's official error-code docs (https://www.data.go.kr/tcs/dss/selectErrCodePopupView.do, the FAQ attachment at https://www.data.go.kr/bbs/faq/selectFaqView.do?bbsId=FAQ_0000000000000214) and, where possible, matched a live response: 10, 12, 22, 30, 31, 99. Still candidate: 20 (the portal uses it for both "no key" and "access denied"), 32 (missing from the current portal table), and the HTTP status / code returned when a valid key calls an API you have not applied for (401+20 vs 403+30 is unverified). A confirmed code can still list several possible causes (e.g. 30 covers typos, double encoding, sync delay and reissued keys). Fixing a meaning means editing one table.
 - Fixtures: 8 come from live calls with an obviously fake key, 3 from public GitHub issues, 7 from kpubdata (MIT, see SOURCES.md; not verified as live captures), and some are synthetic. No official-document fixtures yet.
 - No real key was available to the authors, so the "success" path and per-API result codes are only tested with synthetic bodies.
 - Output text is Korean.
@@ -99,7 +99,7 @@ Tests use fixtures in `tests/fixtures/` (sources in `tests/fixtures/SOURCES.md`)
 
 ## 한국어 요약
 
-공공데이터포털(data.go.kr) OpenAPI 호출이 실패했을 때, 어떤 SDK(PublicDataReader, kpubdata, requests 등)를 썼든 실패 응답 하나를 넣으면 실패 계층(gateway/provider/http/html), 원인, 해결책을 알려 주는 의존성 없는 도구입니다. SDK가 아닙니다. 키 없이도 `datago-doctor explain tests/fixtures/live_badkey.xml --status 403` 로 바로 해 볼 수 있고, `check` 는 요청을 최대 3회로 제한하며 모든 출력에서 서비스키를 마스킹합니다. 코드 20, 22, 30, 31, 32 등은 공식 문서로 확인되지 않아 "후보"로 표시합니다. 이 프로젝트는 AI 에이전트가 만든 실험 프로젝트입니다.
+공공데이터포털(data.go.kr) OpenAPI 호출이 실패했을 때, 어떤 SDK(PublicDataReader, kpubdata, requests 등)를 썼든 실패 응답 하나를 넣으면 실패 계층(gateway/provider/http/html), 원인, 해결책을 알려 주는 의존성 없는 도구입니다. SDK가 아닙니다. 키 없이도 `datago-doctor explain tests/fixtures/live_badkey.xml --status 403` 로 바로 해 볼 수 있고, `check` 는 요청을 최대 3회로 제한하며 모든 출력에서 서비스키를 마스킹합니다. 코드 10, 12, 22, 30, 31, 99는 포털 공식 문서로 확인했고, 20·32와 "활용신청 누락 시 응답"은 아직 "후보"로 표시합니다. 이 프로젝트는 AI 에이전트가 만든 실험 프로젝트입니다.
 
 ## License
 
