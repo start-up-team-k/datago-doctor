@@ -1,9 +1,7 @@
-# Runs only for release tags. Not used until the GP approves PyPI publishing.
+# Manual only (workflow_dispatch). Not used until the GP approves PyPI publishing.
 # Requires PyPI "trusted publishing" configured for this repo; no token is stored.
 name: Publish
-on:
-  push:
-    tags: ["v*"]
+on: workflow_dispatch
 jobs:
   pypi:
     runs-on: ubuntu-latest
